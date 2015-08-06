@@ -58,6 +58,8 @@ test_read_format_mtree1(void)
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
+	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_filename(a, reffile, 11));
 
 	/*
@@ -171,6 +173,8 @@ test_read_format_mtree2(void)
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
+	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive, sizeof(archive)));
 	assertEqualIntA(a, ARCHIVE_OK, archive_read_next_header(a, &ae));
 	assertEqualInt(archive_format(a), ARCHIVE_FORMAT_MTREE);
@@ -205,6 +209,8 @@ test_read_format_mtree3(void)
 	    archive_read_support_filter_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
+	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive, sizeof(archive)));
 	assertEqualIntA(a, ARCHIVE_OK, archive_read_next_header(a, &ae));
@@ -252,6 +258,8 @@ DEFINE_TEST(test_read_format_mtree_filenames_only)
 	    archive_read_support_filter_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
+	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive, sizeof(archive)));
 	assertEqualIntA(a, ARCHIVE_OK, archive_read_next_header(a, &ae));
@@ -307,6 +315,8 @@ DEFINE_TEST(test_read_format_mtree_nochange)
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
+	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive, sizeof(archive)));
 	assertEqualIntA(a, ARCHIVE_OK, archive_read_next_header(a, &ae));
 	assertEqualString(archive_entry_pathname(ae), "./a");
@@ -337,6 +347,8 @@ DEFINE_TEST(test_read_format_mtree_nochange)
 	    archive_read_support_filter_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
+	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive2, sizeof(archive2)));
 	assertEqualIntA(a, ARCHIVE_OK, archive_read_next_header(a, &ae));
@@ -380,6 +392,8 @@ DEFINE_TEST(test_read_format_mtree_nomagic_v1_form)
 	    archive_read_support_filter_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
+	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_filename(a, reffile, 11));
 
@@ -460,6 +474,8 @@ DEFINE_TEST(test_read_format_mtree_nomagic_v2_form)
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
+	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_filename(a, reffile, 11));
 
 	/*
@@ -525,6 +541,8 @@ DEFINE_TEST(test_read_format_mtree_nomagic_v2_netbsd_form)
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
+	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_filename(a, reffile, 11));
 
 	/*
@@ -587,6 +605,8 @@ DEFINE_TEST(test_read_format_mtree_nonexistent_contents_file)
 	    archive_read_support_filter_all(a));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_support_format_all(a));
+	assertEqualIntA(a, ARCHIVE_OK,
+	    archive_read_set_options(a, "mtree:checkfs"));
 	assertEqualIntA(a, ARCHIVE_OK,
 	    archive_read_open_memory(a, archive, sizeof(archive)));
 	assertEqualIntA(a, ARCHIVE_WARN, archive_read_next_header(a, &ae));
